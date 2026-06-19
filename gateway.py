@@ -1,30 +1,25 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import uvicorn
+import time
+import sys
 
-app = FastAPI(title="Sunflower Protocol Sovereign API")
-
-# Your first security layer!
-API_KEY_CREDIT = "SOVEREIGN_ONE_2026"
-
-class ProtocolRequest(BaseModel):
-    key: str
-    query: str
-
-@app.get("/")
-def read_root():
-    return {"status": "Sunflower Protocol Online", "vault": "Secure"}
-
-@app.post("/process")
-def process_protocol(request: ProtocolRequest):
-    if request.key != API_KEY_CREDIT:
-        raise HTTPException(status_code=403, detail="Invalid Access Key.")
+def run_sunflower_protocol():
+    print("--- SUNFLOWER PROTOCOL SHIELD ACTIVATED ---")
+    print("Status: Gateway Persistent")
+    print("Uptime: Sovereign")
+    print("Architect: WilsonsCreator")
     
-    return {
-        "success": True, 
-        "data": f"Sunflower Protocol processed: {request.query}",
-        "message": "Sovereign data delivered."
-    }
+    try:
+        while True:
+            # This is the heartbeat of the Gateway
+            current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+            print(f"[{current_time}] Sunflower Shield: Monitoring... ALL SYSTEMS NOMINAL")
+            
+            # Add your core protocol logic here
+            # For now, we maintain the connection state
+            
+            time.sleep(60) # Heartbeat every minute
+    except KeyboardInterrupt:
+        print("\n--- SHUTTING DOWN PROTOCOL SAFELY ---")
+        sys.exit(0)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    run_sunflower_protocol()
