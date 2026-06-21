@@ -1,13 +1,33 @@
 # Sunflower Protocol: Ephemeral State Routing (ESR)
 
+**A hardened, non-static routing layer for resilient decentralized infrastructure.**
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+
 ## Overview
-The Sunflower Protocol implements a hardened, non-static routing layer designed for high-stakes institutional infrastructure. By utilizing Ephemeral State Routing (ESR), the Sunflower Shield eliminates permanent attack surfaces and ensures sovereign data integrity.
 
-## Core Features
-- **Node Persistence:** Time-bound session layers.
-- **State Sharding:** Distributed fragmentation for maximum privacy.
-- **Traffic Pathing:** Dynamic heuristic routing for 99.9% uptime.
-- **OTA Injection:** Seamless, zero-downtime protocol upgrades.
+The Sunflower Protocol implements **Ephemeral State Routing (ESR)** — a dynamic routing paradigm that eliminates permanent attack surfaces in decentralized networks. Traditional static routing (BGP, mesh protocols) creates persistent vulnerabilities: fixed IPs, predictable paths, and centralized chokepoints. ESR makes routes **time-bound, sharded, and heuristically adaptive**, delivering sovereign resilience for high-stakes use cases like energy grids, DePIN networks, institutional comms, and censorship-resistant infrastructure.
 
-## Institutional Grade Security
-Built for the next billion users, ensuring a sovereign world through decentralized resilience.
+Built for the **next billion users** in a sovereign world.
+
+## Problem
+
+- Static infrastructure = massive attack surface (DDoS, surveillance, single points of failure).
+- Centralized routing fails under resilience stress (outages, geopolitical interference).
+- Privacy leakage through persistent state and predictable paths.
+
+## Solution: Ephemeral State Routing (ESR)
+
+Sunflower Shield turns routing into an ephemeral, living system:
+
+- **Node Persistence**: Time-bound session layers with automatic expiration.
+- **State Sharding**: Distributed fragmentation across nodes for maximum privacy and fault tolerance.
+- **Traffic Pathing**: Dynamic heuristic routing prioritizing uptime, latency, and trust metrics (target: 99.9%+ resilience).
+- **OTA Injection**: Seamless, zero-downtime protocol upgrades without restarting the network.
+
+### Core Mechanics (High-Level)
+```python
+# Example from sunflower_shield.py
+route_id = hashlib.sha256(data_packet + timestamp).hexdigest()
+# Routes evaporate and reform based on current state
