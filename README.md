@@ -1,3 +1,5 @@
+[![Sunflower CI](https://github.com/jennifercox726-ux/sunflower-protocol/actions/workflows/ci.yml/badge.svg)](https://github.com/jennifercox726-ux/sunflower-protocol/actions/workflows/ci.yml)
+
 # Sunflower Protocol: Ephemeral State Routing (ESR)
 
 **Hardened, non-static routing for resilient decentralized infrastructure.**
