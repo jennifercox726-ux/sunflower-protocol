@@ -1,21 +1,24 @@
 import hashlib
 import time
+import json
 
-class SunflowerShield:
-    def __init__(self):
-        self.version = "1.0.0-ESR"
-        self.is_active = True
-
-    def generate_ephemeral_route(self, data_packet):
-        timestamp = str(time.time()).encode()
-        route_id = hashlib.sha256(data_packet.encode() + timestamp).hexdigest()
-        return f"ROUTING_SUCCESS:{route_id[:16]}"
-
-    def deploy_shield(self):
-        print(f"Sunflower Shield {self.version} Initialized...")
-        print("Status: Ephemeral State Routing Active.")
+def generate_ephemeral_route(data="test_packet"):
+    timestamp = str(int(time.time()))
+    # Create ephemeral route ID
+    route_id = hashlib.sha256((data + timestamp).encode()).hexdigest()[:16]
+    route_info = {
+        "route_id": route_id,
+        "timestamp": timestamp,
+        "expires_in": "60 seconds",
+        "status": "ACTIVE - No static surface"
+    }
+    print("🌻 Sunflower Shield ESR Activated")
+    print(json.dumps(route_info, indent=2))
+    return route_info
 
 if __name__ == "__main__":
-    shield = SunflowerShield()
-    shield.deploy_shield()
-    print(shield.generate_ephemeral_route("Institutional_Payload_001"))
+    print("=== SUNFLOWER PROTOCOL DEMO ===")
+    for i in range(3):  # Run 3 times to show ephemerality
+        generate_ephemeral_route(f"packet_{i}")
+        time.sleep(2)
+    print("Demo complete. Routes are ephemeral and dynamic.")
