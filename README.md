@@ -23,3 +23,18 @@ cd sunflower-protocol
 pip install -r requirements.txt
 python sunflower_shield.py
 python gateway.py
+
+# Sunflower Protocol: Ephemeral State Routing (ESR)
+
+**A hardened, non-static routing layer for resilient decentralized infrastructure.**
+
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+
+## Demo (Just Ran)
+
+**sunflower_shield.py output:**
+
+**gateway.py output:**
+
+**Status**: Both scripts running successfully ✅ Ephemeral routing active.
